@@ -1,13 +1,13 @@
-const add(n1, n2){
+function add(n1, n2){
 return Math.round(n1 + n2);
 }
-const subtract(n1, n2){
+function subtract(n1, n2){
 return Math.round(n1 - n2);
 }
-const multiply(n1, n2){
+function multiply(n1, n2){
 return Math.round(n1 * n2);
 }
-const divide(n1, n2){
+function divide(n1, n2){
     if (n2 === 0){
         return "ERR";
     }
@@ -17,7 +17,7 @@ const divide(n1, n2){
 }
 
 
-const operate(){
+function operate(){
      let n1 = 0;
      let n2 = 0;
      let operator = 0;
