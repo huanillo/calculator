@@ -1,0 +1,71 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+#structure{
+    display: flex;
+    flex-flow: column wrap;
+    width: 500px;
+    height: 600px;
+    background-color: darkgray;
+    border: 3px solid black;
+    border-radius: 5px;
+    flex-shrink: 0;
+    box-shadow: 3px 3px 0px rgba(1, 1, 1, 1);
+    align-items: center;
+}
+#display{
+    width: 90%;
+    height: 67px;
+    background-color: black;
+    border: 2px solid rgb(61, 61, 61);
+    border-radius: 5px;
+    margin: 25px;
+    color: rgb(166, 0, 0);
+    font-family: monospace;
+    font-size: 60px;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: right;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%; /* Que sea proporcional */
+    padding: 10px; /* Reducido para no desbordar */
+    gap: 10px; /* En lugar de margin en los botones */
+}
+
+.btn {
+    width: 22%; /* Que los 4 botones por fila quepan */
+    height: 80px; /* Más proporcional */
+    font-size: 2rem;
+    background-color: lightgray;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0px rgba(1, 1, 1, 1);
+    cursor: pointer;}
+
+.operator {
+    background-color: orange;
+    color: white;
+}
+
+.equals {
+    background-color: green;
+    color: white;
+    
+}
+
+.clear {
+    background-color: crimson;
+    color: white;
+}
+.backspace {
+    background-color: rgb(250, 104, 133);
+    color: white;
+}
