@@ -6,19 +6,20 @@ body{
     display: flex;
     flex-flow: column wrap;
     width: 500px;
-    height: 600px;
+    height: 605px;
     background-color: darkgray;
-    border: 3px solid black;
-    border-radius: 5px;
+    border: 3px solid rgb(75, 73, 73);
+    border-radius: 30px;
     flex-shrink: 0;
-    box-shadow: 3px 3px 0px rgba(1, 1, 1, 1);
+    box-shadow: 6px 6px 0px rgb(75, 73, 73);
     align-items: center;
+    padding-top: 10px;
 }
 #display{
-    width: 90%;
+    width: 85%;
     height: 67px;
     background-color: black;
-    border: 2px solid rgb(61, 61, 61);
+    border: 2px solid rgb(75, 73, 73);
     border-radius: 5px;
     margin: 25px;
     color: rgb(166, 0, 0);
@@ -35,37 +36,38 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 90%; /* Que sea proporcional */
-    padding: 10px; /* Reducido para no desbordar */
-    gap: 10px; /* En lugar de margin en los botones */
+    width: 86%;
+    padding: 10px; 
+    gap: 10px; 
+    
 }
 
 .btn {
-    width: 22%; /* Que los 4 botones por fila quepan */
-    height: 80px; /* Más proporcional */
+    width: 100px;
+    height: 80px; 
     font-size: 2rem;
     background-color: lightgray;
     border: none;
     border-radius: 10px;
     box-shadow: 3px 3px 0px rgba(1, 1, 1, 1);
-    cursor: pointer;}
+    cursor: pointer;
+}
 
 .operator {
-    background-color: orange;
+    background-color: rgb(227, 167, 54);
     color: white;
 }
 
 .equals {
-    background-color: green;
+    background-color: rgb(69, 143, 69);
     color: white;
-    
 }
 
 .clear {
-    background-color: crimson;
+    background-color: rgb(164, 40, 40);
     color: white;
 }
 .backspace {
-    background-color: rgb(250, 104, 133);
+    background-color: rgb(233, 101, 127);
     color: white;
 }
