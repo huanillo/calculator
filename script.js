@@ -106,7 +106,7 @@ function operate(operator, a, b) {
         case "*":
             result = n1 * n2;
             break;
-        case "/":
+        case "÷":
             result = n1 / n2;  // Only if n2 is not zero
             break;
         case "%":
