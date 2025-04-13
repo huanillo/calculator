@@ -15,13 +15,15 @@ const display = document.querySelector("#display span");
 updateDisplay("0");
 
 function updateDisplay(value) {
-    // If display is empty, set it to 0
-    if (value === "") {
-        displayValue = "0";
-    } else {
-        displayValue = value;
-    }
+    if (value.length > 12) value = value.slice(0, 12);
+    displayValue = value === "" ? "0" : value;
     display.textContent = displayValue;
+}
+
+function addActiveEffect(button) {
+    if (!button) return;
+    button.classList.add("active");
+    setTimeout(() => button.classList.remove("active"), 150);
 }
 
 numberButtons.forEach(button => {
@@ -41,6 +43,7 @@ numberButtons.forEach(button => {
             firstOperand += value;
             updateDisplay(firstOperand);
         }
+        addActiveEffect(button);
     });
 });
 
@@ -49,11 +52,12 @@ operatorButtons.forEach(button => {
         if (currentOperator !== null && secondOperand !== "") {
             let result = operate(currentOperator, firstOperand, secondOperand);
             updateDisplay(result);
-            firstOperand = result; // Saves the result as the first operand
-            secondOperand = ""; // Clears the second operand
+            firstOperand = result;
+            secondOperand = "";
         }
         currentOperator = button.textContent;
         shouldResetScreen = true;
+        addActiveEffect(button);
     });
 });
 
@@ -63,9 +67,10 @@ equalButton.addEventListener("click", () => {
         updateDisplay(result);
         firstOperand = result;
         secondOperand = "";
-        currentOperator = null; // There is no operator after equal
+        currentOperator = null;
         shouldResetScreen = true;
     }
+    addActiveEffect(equalButton);
 });
 
 clearButton.addEventListener("click", () => {
@@ -73,7 +78,8 @@ clearButton.addEventListener("click", () => {
     secondOperand = "";
     currentOperator = null;
     shouldResetScreen = false;
-    updateDisplay("0"); 
+    updateDisplay("0");
+    addActiveEffect(clearButton);
 });
 
 backspaceButton.addEventListener("click", () => {
@@ -84,16 +90,14 @@ backspaceButton.addEventListener("click", () => {
         secondOperand = secondOperand.slice(0, -1);
         updateDisplay(secondOperand);
     }
+    addActiveEffect(backspaceButton);
 });
 
 function operate(operator, a, b) {
     const n1 = Number(a);
     const n2 = Number(b);
 
-    // Check the division by zero
-    if (operator === "/" && n2 === 0) {
-        return "ERR"; // Return "ERR" if division by zero
-    }
+    if (operator === "÷" && n2 === 0) return "Nope, sorry!";
 
     let result;
     switch (operator) {
@@ -107,21 +111,49 @@ function operate(operator, a, b) {
             result = n1 * n2;
             break;
         case "÷":
-            result = n1 / n2;  // Only if n2 is not zero
-            break;
-        case "%":
-            result = n1 % n2;
+            result = n1 / n2;
             break;
         default:
             return null;
     }
-
-    // If result is NaN (e.g., if a or b is not a number), return "ERR"
-    if (Number.isNaN(result)) {
-        return "ERR"; 
-    }
-
-    // Return result as an integer if no decimals, else round to 2 decimals
+    
     return Number.isInteger(result) ? result : parseFloat(result.toFixed(2));
 }
 
+// Keyboard support and button animation
+document.addEventListener("keydown", (event) => {
+    event.preventDefault(); //solves a bug with the numeric keypad opening quick search
+    const key = event.key;
+    let button = null;
+
+    if (!isNaN(key) || key === ".") {
+        button = Array.from(numberButtons).find(btn => btn.textContent === key);
+        if (button) button.click();
+    }
+
+    let operatorKey = key === "/" ? "÷" : key; //solves the issue of using "/" instead of "÷" in a numeric keypad
+    if (["+", "-", "*", "÷"].includes(operatorKey)) {
+        button = Array.from(operatorButtons).find(btn => btn.textContent === operatorKey);
+        if (button) button.click();
+    }
+
+    if (key === "Enter" || key === "=") {
+        equalButton.click();
+        button = equalButton;
+    }
+
+    if (key === "Backspace") {
+        backspaceButton.click();
+        button = backspaceButton;
+    }
+
+    if (key === "Escape" || key.toLowerCase() === "c") {
+        clearButton.click();
+        button = clearButton;
+    }
+
+    if (button) {
+        button.classList.add("active");
+        setTimeout(() => button.classList.remove("active"), 150);
+    }
+});

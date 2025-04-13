@@ -71,3 +71,24 @@ body{
     background-color: rgb(233, 101, 127);
     color: white;
 }
+
+.btn.active {
+    background-color: rgb(100, 100, 100); 
+    box-shadow: none; /* Remove shadow for a pressed effect */
+}
+
+.operator.active {
+    background-color: rgb(175, 124, 36); 
+}
+
+.equal.active {
+    background-color: rgb(45, 99, 45); 
+}
+
+.clear.active {
+    background-color: rgb(116, 26, 26); 
+}
+
+.backspace.active {
+    background-color: rgb(165, 75, 93); 
+}
