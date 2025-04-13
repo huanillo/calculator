@@ -116,8 +116,7 @@ function operate(operator, a, b) {
         default:
             return null;
     }
-    
-    return Number.isInteger(result) ? result : parseFloat(result.toFixed(2));
+    return result.toString();
 }
 
 // Keyboard support and button animation
