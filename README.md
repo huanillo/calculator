@@ -1,6 +1,6 @@
 # Calculator
 
-This is a calculator project developed as part of The Odin Project curriculum. It allows users to perform basic arithmetic operations like addition, subtraction, multiplication, and division.
+This is a calculator project developed as part of The Odin Project curriculum. It allows users to perform basic arithmetic operations: addition, subtraction, multiplication, and division.
 
 ## Live Demo
 You can try the live version of the calculator by visiting the [GitHub Pages link](https://huanillo.github.io/calculator).
