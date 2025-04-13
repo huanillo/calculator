@@ -1,24 +1,23 @@
-Calculator
+# Calculator
 
 This is a calculator project developed as part of The Odin Project curriculum. It allows users to perform basic arithmetic operations like addition, subtraction, multiplication, and division.
-Live Demo
 
-You can try the live version of the calculator by visiting the GitHub Pages link.
-Features
+## Live Demo
+You can try the live version of the calculator by visiting the [GitHub Pages link](https://huanillo.github.io/calculator).
 
-    Perform basic arithmetic operations: +, -, *, ÷
 
-    Handle decimals and prevent multiple decimal points
+## Features
 
-    Keyboard support for easier interaction
+- Perform basic arithmetic operations: `+`, `-`, `*`, `÷`
+- Handle decimals and prevent multiple decimal points
+- Keyboard support for easier interaction
+- Responsive design
+- Clear and backspace functionality to edit inputs
 
-    Responsive design
+## How to Use
 
-    Clear and backspace functionality to edit inputs
+Simply click on the buttons or use your keyboard to input numbers and operators. To perform a calculation, press the `=` button or hit `Enter`. You can clear the input by clicking the `C` button or pressing `Escape`.
 
-How to Use
-
-Simply click on the buttons or use your keyboard to input numbers and operators. To perform a calculation, press the = button or hit Enter. You can clear the input by clicking the C button or pressing Escape.
-License
+## License
 
 This project is open source and available under the MIT License.
